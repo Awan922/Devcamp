@@ -7,8 +7,6 @@ class PortfoliosController < ApplicationController
 		@portfolio_items = Portfolio.new
 	end
 
-
-
 def create
     @portfolio_items = Portfolio.new(params.require(:portfolio).permit(:title, :subtile, :body))
 
@@ -22,7 +20,7 @@ def create
       end
     end
   end
-def edit
+def edit 
 	@portfolio_items = Portfolio.find(params[:id])
 end
 
@@ -37,5 +35,7 @@ end
       end
     end
   end
-	
+def show
+  @portfolio_item = Portfolio.find(params[:id])
+end
 end

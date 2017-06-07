@@ -23,7 +23,7 @@ end
 
 9.times do|portfolio_item|
 	Portfolio.create!(
-	title: "portfolio_item",
+	title: "portfolio_item #{portfolio_item}",
 	subtitle: "My great service",
 	body:	"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
 	main_image: "http://via.placeholder.com/600x400",
