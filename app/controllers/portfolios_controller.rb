@@ -13,7 +13,7 @@ def angular
 	end
 
 def create
-    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+    @portfolio_item = Portfolio.new(portfolio_params)
 
     respond_to do |format|
       if @blog.save
@@ -31,7 +31,7 @@ end
 
 	def update
     respond_to do |format|
-      if @portfolio_item.update(params.require(:portfolio).permit(:title, :subtile, :body))
+      if @portfolio_item.update(portfolio_params)
         format.html { redirect_to portfolio_path, notice: 'Blog was successfully updated.' }
         format.json { render :show, status: :ok, location: @blog }
       else
@@ -43,4 +43,30 @@ end
 def show
   @portfolio_item = Portfolio.find(params[:id])
 end
+  def destroy
+   @portfolio_item = Portfolio.find(params[:id])
+
+   @portfolio_item.destroy
+   respond_to do |format|
+    format.html {redirect_to portfolios_url, notice: 'record was removed'}
+  end
 end
+
+ private
+ 
+  def portfolio_params
+    params.require(:portfolio).permit(:title, 
+                                      :subtitle, 
+                                      :body, 
+                                      technologies_attributes: [:name]
+                                      )
+
+   end
+ 
+  end
+
+
+
+
+
+
