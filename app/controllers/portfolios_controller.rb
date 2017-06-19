@@ -61,7 +61,7 @@ end
                                       technologies_attributes: [:name]
                                       )
 
-  end
+   end
  
   end
 
