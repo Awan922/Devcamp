@@ -2,5 +2,6 @@
   <%= image_tag portfolio_item.thumb_image unless portfolio_item.thumb_image.nil? %>
   <p class="card-text">
     <span><%= link_to portfolio_item.title, portfolio_show_path(portfolio_item) %></span> <%= portfolio_item.subtitle %>
+    <%= link_to "Edit", edit_portfolio_path(portfolio_item) if logged_in?(:site_admin) %>
   </p>
 </div>

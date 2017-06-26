@@ -16,12 +16,12 @@ def angular
     3.times { @portfolio_item.technologies.build }
 	end
 
-def create
+  def create
     @portfolio_item = Portfolio.new(portfolio_params)
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to portfolios path, notice: 'Your portfolio item is now live.' }
+        format.html { redirect_to portfolios_path, notice: 'Your portfolio item is now live.' }
       else
         format.html { render :new }
       end
@@ -30,13 +30,13 @@ def create
 def edit 
 end
 
-	def update
+  def update
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
-        format.html { redirect_to portfolios_path, notice: 'Blog was successfully updated.' }
+        format.html { redirect_to portfolios_path, notice: 'The record successfully updated.' }
       else
         format.html { render :edit }
-       end
+      end
     end
   end
 
